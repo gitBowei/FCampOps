@@ -1,0 +1,12 @@
+url,Template,title,storage,resource,owner
+Marketing,STS#0,Marketing Site,1000,100,fcampo@colmct.onmicrosoft.com
+Sales,STS#0,Sales Site,1000,100,fcampo@colmct.onmicrosoft.com
+HR,STS#0,Human Resources Site,1000,100,fcampo@colmct.onmicrosoft.com
+topsecret,STS#0,top secret Site,500,100,fcampo@colmct.onmicrosoft.com
+Products,STS#0,Products,500,100,fcampo@colmct.onmicrosoft.com
+Socialclub,STS#0,Social Club,500,100,fcampo@colmct.onmicrosoft.com
+Managers,STS#0,Managers Site,1000,100,fcampo@colmct.onmicrosoft.com
+O365Support,STS#0,O365Support Site,500,100,fcampo@colmct.onmicrosoft.com
+Projectx,STS#0,Project X,500,100,fcampo@colmct.onmicrosoft.com
+Projecty,STS#0,Project Y,500,100,fcampo@colmct.onmicrosoft.com
+Projectz,STS#0,Project Z,500,100,fcampo@colmct.onmicrosoft.com

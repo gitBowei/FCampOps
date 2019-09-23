@@ -1,0 +1,1 @@
+﻿New-MailboxRestoreRequest -SourceMailbox vieja -TargetMailbox nueva -AllowLegacyDNMismatch
