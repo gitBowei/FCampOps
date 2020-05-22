@@ -1,0 +1,67 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+    <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
+        <Snippet Version='1.0.0'>
+            <Header>
+                <Title>DSC Configuration (w/ConfigurationData)</Title>
+                <Description>DSC Config with ConfigurationData for Dev/Test/Production</Description>
+                <Author>Jeffrey P. Snover</Author>
+                <SnippetTypes>
+                    <SnippetType>Expansion</SnippetType>
+                </SnippetTypes>
+            </Header>
+
+            <Code>
+                <Script Language='PowerShell' CaretOffset='0'>
+                    <![CDATA[#region DSC Configuration w/Configuration Data Snippet
+$DevConfig = @{
+    AllNodes = 
+    @(
+        @{
+            NodeName  = "*"
+        },
+        @{
+            NodeName = "VM-1";
+            Role     = "WebServer"
+        }, 
+        @{
+            NodeName = "VM-2";
+            Role     = "SQLServer"
+        }
+    );
+
+    NonNodeData = 
+    @{
+        ConfigFileContents = "test"
+     }   
+} 
+
+# Have a seperate configuration for each deployment environment
+#$TestConfig = @{}
+#$ProductionConfig = @{}
+
+configuration MyConfiguration
+{
+    Import-DscResource -ModuleName PSDesiredStateConfiguration 
+    node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
+    {
+        WindowsFeature IIS
+        {
+            Name   = 'Web-Server'
+            Ensure = 'Present'
+        }
+        File ConfigFile
+        {
+            DestinationPath = "c:\\temp\\config.xml"
+            Contents = $ConfigurationData.NonNodeData.ConfigFileContents
+        }
+    }
+}
+
+#MyConfiguration -ConfigurationData $DevConfig
+#endregion]]>
+                </Script>
+            </Code>
+
+    </Snippet>
+</Snippets>
+

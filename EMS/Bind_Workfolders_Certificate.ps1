@@ -1,0 +1,1 @@
+﻿$thumb=Get-ChildItem –Path cert:\LocalMachine\My | where {$_.subject -like 'cn=work*'}"netsh http add sslcert ipport=131.107.0.101:443 certhash=" + $thumb.thumbprint + " appid={CE66697B-3AA0-49D1-BDBD-A25C8359FD5D} certstorename=MY" | out-file -Encoding ascii -FilePath c:\thumbprint.batC:\thumbprint.bat

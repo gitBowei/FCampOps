@@ -1,0 +1,1 @@
+﻿$GPOID = (Get-GPO -Name "DirectAccess Client Settings").IDdjoin /provision /domain corp.contoso.com /machineOU "ou=Clients,ou=accounts,dc=corp,dc=contoso,dc=com" /machine MOBILE /SaveFile \\edge\c$\client.txt /policynames "DirectAccess Client Settings" /PolicyPaths ("\\dc\sysvol\corp.contoso.com\policies\{" + $GPOID + "}\machine\registry.pol") /reuse

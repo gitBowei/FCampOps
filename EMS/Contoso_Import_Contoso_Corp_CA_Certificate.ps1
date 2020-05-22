@@ -1,0 +1,1 @@
+﻿Import-Module PKI$CertPassword = ConvertTo-SecureString "Passw0rd" -AsPlainText -ForceImport-PfxCertificate -FilePath "\\DC\RootCertificate\ContosoCorpCA.pfx" -CertStoreLocation Cert:\LocalMachine\Root -Exportable -Password $CertPassword

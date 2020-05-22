@@ -1,0 +1,1 @@
+﻿New-SyncShare SalesFolders –path C:\SalesFolders –User Corp\sales -RequireEncryption $false –RequirePasswordAutoLock $true  -InheritParentFolderPermission

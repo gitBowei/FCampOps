@@ -1,0 +1,1 @@
+Netsh Wlan show profiles "Pats Bakery" Key=Clear

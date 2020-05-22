@@ -1,0 +1,11 @@
+Add-MailboxDatabaseCopy -identity DB-110-6GB-02  -MailboxServer BOGSMB110P12103  -Confirm:$false
+Add-MailboxDatabaseCopy -identity DB-110-6GB-05  -MailboxServer BOGSMB110P12103  -Confirm:$false
+Add-MailboxDatabaseCopy -identity DB-110-6GB-06  -MailboxServer BOGSMB110P12103  -Confirm:$false
+Add-MailboxDatabaseCopy -identity DB-110-9GB-01  -MailboxServer BOGSMB110P12103  -Confirm:$false
+Add-MailboxDatabaseCopy -identity DB-110-9GB-02  -MailboxServer BOGSMB110P12103  -Confirm:$false
+Add-MailboxDatabaseCopy -identity DB-110-9GB-03  -MailboxServer BOGSMB110P12103  -Confirm:$false
+Add-MailboxDatabaseCopy -identity DB-110-9GB-04  -MailboxServer BOGSMB110P12103  -Confirm:$false
+Add-MailboxDatabaseCopy -identity DB-110-9GB-09  -MailboxServer BOGSMB110P12103  -Confirm:$false
+Add-MailboxDatabaseCopy -identity DB-110-9GB-10  -MailboxServer BOGSMB110P12103  -Confirm:$false
+Add-MailboxDatabaseCopy -identity DB-110-9GB-11  -MailboxServer BOGSMB110P12103  -Confirm:$false
+Add-MailboxDatabaseCopy -identity DB-110-9GB-12  -MailboxServer BOGSMB110P12103  -Confirm:$false

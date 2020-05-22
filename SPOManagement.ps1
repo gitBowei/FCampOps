@@ -1,4 +1,4 @@
-Install-Module AzureAD
+﻿Install-Module AzureAD
 Install-Module MSonline
 Get-Command -Module AzureAD
 Get-AzureADDomain

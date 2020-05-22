@@ -1,0 +1,81 @@
+FabianCampo
+Test OAuth
+Primary tabs
+Details
+(active tab)
+Settings
+Keys and Access Tokens
+Permissions
+
+vscode twitter connector
+http://fcampo7463.wordpress.com
+Organization
+Information about the organization or company associated with your application. This information is optional.
+ 
+Organization
+None
+ 
+Organization website
+None
+Application Settings
+Your application's Consumer Key and Secret are used to authenticate requests to the Twitter Platform.
+ 
+Access level
+Read and write (modify app permissions) 
+ 
+Consumer Key (API Key)
+CWn66fcMrcfc9v67GdMtXSmHT (manage keys and access tokens) 
+ 
+Callback URL
+None
+ 
+Sign in with Twitter
+Yes
+ 
+App-only authentication
+https://api.twitter.com/oauth2/token
+ 
+Request token URL
+https://api.twitter.com/oauth/request_token
+ 
+Authorize URL
+https://api.twitter.com/oauth/authorize
+ 
+Access token URL
+https://api.twitter.com/oauth/access_token
+
+Application Settings
+Keep the "Consumer Secret" a secret. This key should never be human-readable in your application.
+ 
+Consumer Key (API Key)
+CWn66fcMrcfc9v67GdMtXSmHT
+ 
+Consumer Secret (API Secret)
+26C0VPZnQIay6RfboBfrL7pAh6gmIYtIuiKEqGQu3JURmMawvG
+ 
+Access Level
+Read and write (modify app permissions) 
+ 
+Owner
+FCampo
+ 
+Owner ID
+20172062
+
+Your Access Token
+This access token can be used to make API requests on your own account's behalf. Do not share your access token secret with anyone. 
+ 
+Access Token
+20172062-OFPYLsRV8O2m3arWLqMy55fSFrz2EsNSFM09ilJxF
+ 
+Access Token Secret
+DYbr7qyfoui7Q1pBkJAhN0HJtIMEVpBO1buFfO1LKKxco
+ 
+Access Level
+Read and write
+ 
+Owner
+FCampo
+ 
+Owner ID
+20172062

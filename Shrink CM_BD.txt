@@ -1,0 +1,8 @@
+DBCC SHRINKFILE (cm_pcm_log, 4000);  
+GO 
+DBCC SHRINKFILE (cm_pcm_log, 3000);  
+GO 
+DBCC SHRINKFILE (cm_pcm_log, 2000);  
+GO 
+DBCC SHRINKFILE (cm_pcm_log, 1000);  
+GO

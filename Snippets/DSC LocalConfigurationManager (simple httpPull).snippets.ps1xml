@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+    <Snippets  xmlns='http://schemas.microsoft.com/PowerShell/Snippets'>
+        <Snippet Version='1.0.0'>
+            <Header>
+                <Title>DSC LocalConfigurationManager (simple httpPull)</Title>
+                <Description>DSC Config with LocalConfigurationManager</Description>
+                <Author>Jeffrey P. Snover</Author>
+                <SnippetTypes>
+                    <SnippetType>Expansion</SnippetType>
+                </SnippetTypes>
+            </Header>
+
+            <Code>
+                <Script Language='PowerShell' CaretOffset='0'>
+                    <![CDATA[[DSCLocalConfigurationManager()]
+Configuration LCM_HTTPPULL 
+{
+    param
+        (
+            [Parameter(Mandatory=$true)]
+            [string[]]$ComputerName,
+
+            [Parameter(Mandatory=$true)]
+            [string]$guid
+        )      	
+	Node $ComputerName
+	{
+		Settings
+		{
+			AllowModuleOverwrite = $True
+            ConfigurationMode = 'ApplyAndAutoCorrect'
+			RefreshMode = 'Pull'
+			ConfigurationID = $guid
+        }
+
+        ConfigurationRepositoryWeb PullServer 
+        {
+            Name = 'PullServer'
+            ServerURL = 'http://dc.company.pri:8080/PSDSCPullServer.svc'
+            AllowUnsecureConnection = $true
+        }
+	}
+}
+#LCM_HTTPPULL -ComputerName S1 -GUID $([GUID]::NEWGUID()) -OutputPath C:\temp
+#Set-DscLocalConfigurationManager -Path C:\temp -ComputerName s1]]>
+                </Script>
+            </Code>
+
+    </Snippet>
+</Snippets>
+

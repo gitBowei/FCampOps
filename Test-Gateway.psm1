@@ -1,3 +1,5 @@
+##Copy Module to c:\Program Files\WindowsPowerShell\Modules\Test-Gateway
+
 function Test-Gateway {
     param($Computer = $null,
      $Count = "1")

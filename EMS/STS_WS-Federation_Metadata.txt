@@ -1,0 +1,1 @@
+https://adfs.corp.contoso.com/federationmetadata/2007-06/federationmetadata.xml

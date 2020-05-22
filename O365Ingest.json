@@ -1,0 +1,199 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "HTTP": {
+                "inputs": {
+                    "authentication": {
+                        "password": "O365Msg-TracE",
+                        "type": "Basic",
+                        "username": "msgtracereporting@campohenriquezlab.onmicrosoft.com"
+                    },
+                    "headers": {
+                        "Accept": "application/json"
+                    },
+                    "method": "GET",
+                    "uri": "https://reports.office365.com/ecp/reportingwebservice/reporting.svc/MessageTrace?$filter=StartDate%20eq%20datetime'@{first(body('Parse_JSON_2'))['max_Received_t']}'%20and%20EndDate%20eq%20datetime'@{utcNow()}'"
+                },
+                "runAfter": {
+                    "Parse_JSON_2": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Http"
+            },
+            "Parse_JSON": {
+                "inputs": {
+                    "content": "@body('HTTP')",
+                    "schema": {
+                        "properties": {
+                            "odata.metadata": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "items": {
+                                    "properties": {
+                                        "EndDate": {
+                                            "type": "string"
+                                        },
+                                        "FromIP": {
+                                            "type": "string"
+                                        },
+                                        "Index": {
+                                            "type": "integer"
+                                        },
+                                        "MessageId": {
+                                            "type": "string"
+                                        },
+                                        "MessageTraceId": {
+                                            "type": "string"
+                                        },
+                                        "Organization": {
+                                            "type": "string"
+                                        },
+                                        "Received": {
+                                            "type": "string"
+                                        },
+                                        "RecipientAddress": {
+                                            "type": "string"
+                                        },
+                                        "SenderAddress": {
+                                            "type": "string"
+                                        },
+                                        "Size": {
+                                            "type": "integer"
+                                        },
+                                        "StartDate": {
+                                            "type": "string"
+                                        },
+                                        "Status": {
+                                            "type": "string"
+                                        },
+                                        "Subject": {
+                                            "type": "string"
+                                        },
+                                        "ToIP": {
+                                            "type": [
+                                                "string",
+                                                "null"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "Organization",
+                                        "MessageId"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "runAfter": {
+                    "HTTP": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ParseJson"
+            },
+            "Parse_JSON_2": {
+                "inputs": {
+                    "content": "@body('Run_query_and_list_results')?['value']",
+                    "schema": {
+                        "items": {
+                            "properties": {
+                                "max_Received_t": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "max_Received_t"
+                            ],
+                            "type": "object"
+                        },
+                        "type": "array"
+                    }
+                },
+                "runAfter": {
+                    "Run_query_and_list_results": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ParseJson"
+            },
+            "Run_query_and_list_results": {
+                "inputs": {
+                    "body": "union isfuzzy=true\n(print Received_t=(now()-30d)), //querying max 30 days ago\n(EmailEvents3_CL | summarize arg_max(Received_t, *)) //latest message \n| summarize max(Received_t) \n| project max_Received_t = (max_Received_t + 1ms) ",
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['azuremonitorlogs']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/queryData",
+                    "queries": {
+                        "resourcegroups": "LAnalytics_rg",
+                        "resourcename": "EmailLAWS",
+                        "resourcetype": "Log Analytics Workspace",
+                        "subscriptions": "0f8b1ab3-465c-4a9c-8e87-ebf8a65fcf37",
+                        "timerange": "30 days"
+                    }
+                },
+                "runAfter": {},
+                "type": "ApiConnection"
+            },
+            "Send_Data": {
+                "inputs": {
+                    "body": "@{body('Parse_JSON')?['value']}",
+                    "headers": {
+                        "Log-Type": "EmailEvents3"
+                    },
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['azureloganalyticsdatacollector']['connectionId']"
+                        }
+                    },
+                    "method": "post",
+                    "path": "/api/logs"
+                },
+                "runAfter": {
+                    "Parse_JSON": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ApiConnection"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            }
+        },
+        "triggers": {
+            "Recurrence": {
+                "recurrence": {
+                    "frequency": "Day",
+                    "interval": 1
+                },
+                "type": "Recurrence"
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "value": {
+                "azureloganalyticsdatacollector": {
+                    "connectionId": "",
+                    "connectionName": "",
+                    "id": ""
+                },
+                "azuremonitorlogs": {}
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+Prueba la nueva tecnología PowerShell multiplataforma https://aka.ms/pscore6
+
+Cargar los perfiles personales y de sistema tardó 3255ms.
+C:\Users\fcam> $cert = New-SelfSignedCertificate -Subject "CN=TodoListDaemonWithCert" -CertStoreLocation cert:\CurrentUser\My -Provider "Microsoft Strong Cryptographic Provider"
+C:\Users\fcam> $cert = New-SelfSignedCertificate -Subject "CN=TodoListDaemonWithCert" -CertStoreLocation cert:\CurrentUser\My -Provider "Microsoft Strong Cryptographic Provider"
+C:\Users\fcam> Write-Host "base64Cert: " ([System.Convert]::ToBase64String($cert.GetRawCertData()))
+base64Cert:  MIIDHDCCAgSgAwIBAgIQGgp8EcoFqYtMAEnS6/RK6DANBgkqhkiG9w0BAQUFADAhMR8wHQYDVQQDDBZUb2RvTGlzdERhZW1vbldpdGhDZXJ0MB4XDTE5MDcyNDIxMDk0NVoXDTIwMDcyNDIxMjk0NVowITEfMB0GA1UEAwwWVG9kb0xpc3REYWVtb25XaXRoQ2VydDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAP9pFApjgvl7Kx1P+oPdXd2Ho5pfYhyY1YwJREul8oTHwPjHDC6keC6a+XxtrWbasgSjSEzBA4tFBllcxCYE4qhpa8/2odiUnn8BLKLo3jmisV4hPZ1VknIZEClNHeGswkaIKH47IFzXpKTlegF8HDtMNYQMpfgAd9uyDILeU0oW0G1SGgHjqPaOru5xETQ8twnefcKY/3OU2UV7sFYvevfh53nB8fk2ueTD+VuShcWH2p1Dhw4ZyvuoXJiAFq9+h3+sTfEDcMoT5anIsvA1ZmtwagOUPqhG/KOg8hzOMgND4f4fc+aD3MLrZ++EfDWw93k9sknRJi9QTUCXl75P+zUCAwEAAaNQME4wDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAdBgNVHQ4EFgQU05R7FGayw8BUxLr9HwVhNwkNzTAwDQYJKoZIhvcNAQEFBQADggEBADwA+qplOLr1JDolfr2y5m3+CpFT2zXYu2YLrZe4EIPwkrBsZdWydbnvlp6o/qP1WACyF6W8h47G8ciZ2mZCTVmBk1fRYTOXMQcAblhckv84e5Oo5gEfy4807KeCTTeB4o5NG8n36mEOV987g0QFuCNFyzn4YavnC7BHf2sTx/dvce2jh302cnCqaKdGFDXggrEjipM7cwVMl+0OXAhGlakztYnTMOkDI6yeK8S7ph1ac0DSIkz02h9se6bm8SZODl8gaG3G+hdv1FgwI8ktSBbkI9/AV7PmIpedBEesrcQRpB8rmf9diPDvkGxaXYk7Ad5fnHDG/h2H/RgoB+JTRwQ=
+C:\Users\fcam> Write-Host "base64CertHash:" ([System.Convert]::ToBase64String($cert.GetCertHash()))
+base64CertHash: 9oTs3goVzRVwph0oL8YSU6hdS5w=
+C:\Users\fcam> Write-Host "keyID:" ([System.Guid]::NewGuid().ToString())
+keyID: cacd155c-adc4-456d-96f2-20aa5c08f70c
+C:\Users\fcam> $cert = Get-ChildItem -Path cert:\CurrentUser\My | ?{$_.Subject -eq "CN=TodoListDaemonWithCert"}
+C:\Users\fcam>

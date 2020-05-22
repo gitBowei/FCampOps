@@ -1,0 +1,3 @@
+setspn -S http/edge.corp.contoso.com edge
+
+setspn -S http/edge edge

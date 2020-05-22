@@ -1,0 +1,1 @@
+﻿dism /Online /Add-ProvisionedAppxPackage /PackagePath:'\\dc\Source$\SampleApps\Tiles_Sample.appx' /skiplicense

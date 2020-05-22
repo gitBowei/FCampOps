@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<fedUtilUserInput>
+  <application location="C:\inetpub\ClaimApp\web.config" 
+               applicationUri="https://intranet.corp.contoso.com/claimapp/" 
+               updateMetadata="false">
+
+<securityTokenService federationMetadataLocation="https://adfs.corp.contoso.com/federationmetadata/2007-06/federationmetadata.xml">
+      <claimTypeRequirements useAllStsClaims="true"/>
+        <disableCertificateValidation/>
+    </securityTokenService>
+  </application>
+</fedUtilUserInput>
+             
+             

@@ -1,0 +1,1 @@
+sc.exe triggerinfo kdssvc start/networkon

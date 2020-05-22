@@ -1,0 +1,2 @@
+c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value =~ "^(?i)true$"]
+=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "PermitUsersWithClaim");

@@ -1,0 +1,39 @@
+﻿
+add-mailboxdatabasecopy -identity DB-110-2GB-18 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-2GB-19 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-2GB-20 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-4GB-16 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-4GB-17 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-4GB-18 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-4GB-19 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-4GB-20 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-6GB-07 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-6GB-08 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-9GB-13 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-9GB-14 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-9GB-15 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-9GB-16 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-12GB-10 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-12GB-11 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-12GB-12 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+add-mailboxdatabasecopy -identity DB-110-14GB-04 -MailboxServer BOGSMB110P12104 -Confirm:$false -SeedingPostponed
+
+
+update-mailboxdatabasecopy -identity DB-110-2GB-18\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-2GB-19\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-2GB-20\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-4GB-16\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-4GB-17\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-4GB-18\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-4GB-19\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-4GB-20\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-6GB-07\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-6GB-08\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-9GB-13\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-9GB-14\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-9GB-15\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-9GB-16\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-12GB-10\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-12GB-11\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-12GB-12\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles
+update-mailboxdatabasecopy -identity DB-110-14GB-04\BOGSMB110P12104 -SourceServer BOGSMB110P12101 -Confirm:$false  -SafeDeleteExistingFiles

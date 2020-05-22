@@ -1,0 +1,1 @@
+Esta carpeta contiene elementos de creacion, scripts, plantillas y esas cosas.
